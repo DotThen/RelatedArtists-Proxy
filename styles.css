@@ -1,0 +1,22 @@
+html, body {
+
+}
+
+#Header {
+    display: flex;
+}
+
+#PopularSongs {
+    display: flex;
+
+}
+
+#RelatedArtists {
+    display: flex;
+
+}
+
+#Album {
+    display: flex;
+
+}
