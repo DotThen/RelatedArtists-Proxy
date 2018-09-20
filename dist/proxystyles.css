@@ -1,0 +1,62 @@
+ html {
+    overflow: hidden;
+    height: 100%;
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+
+ } 
+ 
+ body {
+    height: 100%;
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+    font-size: 16px;
+    overflow: auto;
+    cursor: default;
+    background: rgb(25, 25, 25);
+}
+
+.mainContainer {
+    display: flex;
+    flex-direction: column;
+    background: rgb(25, 25, 25);
+
+}
+/* /add margin-top 9% for popover */
+#Header {
+    /* display: flex; */
+}
+
+.songsFansContainer {
+    display: flex;
+    justify-content: center;
+    flex-direction: row-reverse;
+    /* flex-flow: row wrap; */
+
+}
+
+#PopularSongs {
+    display: flex;  
+    position: relative;
+    right: 10%;
+    background: rgb(25, 25, 25);
+    
+}
+
+#RAApp {
+  display: flex;
+  position: relative;
+  left: 5%;
+  justify-content: flex-start;
+
+}
+
+#AlbumApp {
+    /* display: flex; */
+
+} 
+input[type=range] {
+    width: 90%;
+}  
