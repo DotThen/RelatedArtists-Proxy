@@ -43,4 +43,15 @@ app.get ('/artists/:artistID', (req, res) => {
     });
 });
 
+app.get ('/artist/:id/relatedArtists', (req, res) => {
+  axios
+    .get (`http://localhost:3002/artist/${req.params.id}/relatedArtists`)
+    .then (function (response) {
+      res.send (response.data);
+    })
+    .catch (function (error) {
+      console.log ('error', error);
+    });
+});
+
 app.listen (3000, () => console.log ('listening!!'));
