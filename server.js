@@ -1,57 +1,37 @@
 const express = require ('express');
 const app = express ();
 const cors = require ('cors');
-const axios = require ('axios');
+const path = require ('path');
 const bodyparser = require ('body-parser');
+const compression = require('compression');
 
-//app.use (bodyparser ());
+app.use(compression());
 app.use (cors ());
-app.use (express.static ('./dist'));
+app.use(bodyparser.json());
+app.use(express.urlencoded({extended: true}));
+app.use (express.static (path.join (__dirname, './dist')));
 
-//create axios request that gets data from different server endpoint
 
-app.get ('/artists/albums/:artistID', (req, res) => {
-  axios
-    .get ('http://localhost:3001/artists/albums/' + req.params.artistID)
-    .then (function (response) {
-      res.send (response.data);
-    })
-    .catch (function (error) {
-      console.log ('error', error);
-    });
+app.get('/artist/:id', function(req, res) {
+  res.redirect(`http://18.224.17.253${req.url}`);
 });
 
-app.get ('/artist/:id', (req, res) => {
-  axios
-    .get ('http://localhost:3003/artists/' + req.params.id)
-    .then (function (response) {
-      res.send (response.data);
-    })
-    .catch (function (error) {
-      console.log ('error', error);
-    });
+
+app.get('/artist/:id/relatedArtists', function(req, res) {
+  var redirectUrl = `http://18.206.245.56${req.url}`;
+  res.redirect(redirectUrl);
 });
 
-app.get ('/artists/:artistID', (req, res) => {
-  axios
-    .get ('http://localhost:3004/artists/' + req.params.artistID)
-    .then (function (response) {
-      res.send (response.data);
-    })
-    .catch (function (error) {
-      console.log ('error', error);
-    });
+
+
+app.get('/artists/:artistID', function(req, res) {
+  var redirectUrl = `http://35.172.133.115${req.url}`;
+  res.redirect(redirectUrl);
 });
 
-app.get ('/artist/:id/relatedArtists', (req, res) => {
-  axios
-    .get (`http://localhost:3002/artist/${req.params.id}/relatedArtists`)
-    .then (function (response) {
-      res.send (response.data);
-    })
-    .catch (function (error) {
-      console.log ('error', error);
-    });
-});
 
+app.get('/artists/albums/:artistID', function(req, res) {
+  var redirectUrl = `http://52.15.129.193${req.url}`;
+  res.redirect(redirectUrl);
+});
 app.listen (3000, () => console.log ('listening!!'));
